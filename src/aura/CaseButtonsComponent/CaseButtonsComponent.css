@@ -1,0 +1,25 @@
+.THIS .CloseButtonClass{
+    /*background-color:#135f90;*/
+    background-color:#662d91;
+    outline:none;
+    color:#ffffff;
+    border:none;
+    border-radius:.125rem;
+    font-size:.87em;
+    font-weight:normal;
+    line-height:0.95em;
+    transition:border .25s linear,color .25s linear,background-color .25s linear;
+    display:block;
+    width:100%;
+    vertical-align:middle;
+    cursor:pointer;
+    text-align:center;
+    margin-bottom:0px;
+    text-transform:none;
+    overflow:visible;
+    margin:2px;
+    font:inherit;
+    box-sizing:border-box;
+    padding:10px;
+    
+}

@@ -1,0 +1,102 @@
+<!--
+/************************************************************************************************* 
+Revision History
+Date        By				Description
+2017-03-31	Ramesh Kotike	VSTS-949
+**************************************************************************************************/
+-->
+<aura:component controller="CaseButtonsApexController" implements="forceCommunity:availableForAllPageTypes">	
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="CaseId" type="String" default=""/>
+    <aura:attribute name="caseBtnInfoObj" type="CaseButtonsApexController.caseButtonCls"/>
+    
+    <!--
+    <aura:attribute name="showCloseButtonVar" type="Boolean" default="true"/>
+    <aura:attribute name="showEditCARFButtonVar" type="Boolean" default="false"/>
+    <aura:attribute name="showCreateCARFButtonVar" type="Boolean" default="false"/>
+ -->    
+    <!--ui:button label="Close" press="{!c.redirectToCloseCasePage}"/-->
+    <!--aura:renderIf isTrue="{!v.showCloseButtonVar}"-->
+
+    <table>
+        <tr >
+            <td >
+                <aura:if isTrue="{!v.caseBtnInfoObj.showAddContact}">
+                    <div>
+                        <button class="CloseButtonClass" type="button" onclick="{!c.redirectToAddContactPage}">
+                            <span>Add/Remove Contact</span>
+                        </button>
+                    </div>
+                </aura:if>
+            </td>
+            <td >
+                &nbsp;
+            </td>
+            <td >
+                <aura:if isTrue="{!v.caseBtnInfoObj.showCaseUrgency}">
+                    <div>
+                        <button class="CloseButtonClass" type="button" onclick="{!c.redirectToUpdateCaseUrgencyPage}">
+                            <span>Update Urgency</span>
+                        </button>
+                    </div>
+                </aura:if>
+            </td>
+        </tr>
+        <tr >
+            <td colspan="3" >
+                <aura:if isTrue="{!v.caseBtnInfoObj.showCloseButton}">
+                    <div>
+                        <button class="CloseButtonClass" type="button" onclick="{!c.redirectToCloseCasePage}">
+                            <span>Close Case</span>
+                        </button>
+                    </div>
+                </aura:if>
+            </td>
+        </tr>
+        <tr >
+            <td >
+                <!--aura:renderIf isTrue="{!v.showCreateCARFButtonVar}"-->
+                <aura:if isTrue="{!v.caseBtnInfoObj.showCreateCARFButton}">
+                    <div>
+                        <button class="CloseButtonClass" type="button" onclick="{!c.redirectToCARFCreatePage}">
+                            <span>Create CARF</span>
+                        </button>
+                    </div>
+                </aura:if>
+                <!--aura:renderIf isTrue="{!v.showEditCARFButtonVar}"-->
+                <aura:if isTrue="{!v.caseBtnInfoObj.showEditCARFButton}">
+                    <div>
+                        <button class="CloseButtonClass" type="button" onclick="{!c.redirectToCARFEditPage}">
+                            <span>Edit CARF</span>
+                        </button>
+                    </div>
+                </aura:if>
+            </td>
+            <td >
+                &nbsp;
+            </td>
+            <td >
+                <aura:if isTrue="{!v.caseBtnInfoObj.editSupportingCARFFiles}">
+                    <div>
+                        <button class="CloseButtonClass" type="button" onclick="{!c.redirectToEditSupportingFilesPage}">
+                            <span>Edit Supporting Files</span>
+                        </button>
+                    </div>
+                </aura:if>                
+            </td>
+        </tr>
+        <tr >
+            <td colspan="3" >
+                <div>
+                    <button class="CloseButtonClass" type="button" onclick="{!c.redirectToCasePrintPage}">
+                        <span>Print Case</span>
+                    </button>
+                </div>
+            </td>
+        </tr>
+
+    </table>
+    <!--div>
+     {!v.CaseId}
+    </div-->
+</aura:component>
